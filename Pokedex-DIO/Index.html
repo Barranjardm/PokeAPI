@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokecode</title>
+    <!-- Estilos principais -->
+    <link rel="stylesheet" href="./Css/Global.css">
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="content">
+        <h1 class="pokemon-title">
+            <img src="./Assets/gaming.png" alt=""> Pokédex
+        </h1>
+
+        <!-- Barra de pesquisa -->
+        <form id="search-form" autocomplete="off" class="search-bar">
+            <input id="search-input" type="text" placeholder="Buscar pokémon por nome ou número..." />
+            <button type="submit" title="Buscar">
+                <svg width="22" height="22" fill="none" stroke="#2a75bb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </button>
+        </form>
+        <!-- Filtro de tipos -->
+        <div class="type-filter" id="type-filter">
+            <button data-type="all" class="type-btn active">Todos</button>
+            <button data-type="grass" class="type-btn">Grama</button>
+            <button data-type="fire" class="type-btn">Fogo</button>
+            <button data-type="water" class="type-btn">Água</button>
+            <button data-type="electric" class="type-btn">Elétrico</button>
+            <button data-type="bug" class="type-btn">Inseto</button>
+            <button data-type="normal" class="type-btn">Normal</button>
+            <button data-type="poison" class="type-btn">Veneno</button>
+            <button data-type="ground" class="type-btn">Terra</button>
+            <button data-type="fairy" class="type-btn">Fada</button>
+            <button data-type="fighting" class="type-btn">Lutador</button>
+            <button data-type="psychic" class="type-btn">Psíquico</button>
+            <button data-type="rock" class="type-btn">Pedra</button>
+            <button data-type="ghost" class="type-btn">Fantasma</button>
+            <button data-type="ice" class="type-btn">Gelo</button>
+            <button data-type="dragon" class="type-btn">Dragão</button>
+        </div>
+        <!-- Lista de pokémons -->
+        <ol id="pokemonlist" class="pokemons"></ol>
+    </section>
+    <!-- Botão de carregar mais -->
+    <button id="loadmore" class="loadmore" style="position:relative;">
+        Carregar mais pokémons
+        <div id="loading" class="loading" style="display:none; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); pointer-events:none;"></div>
+    </button>
+
+   
+    <!-- Modal de detalhes -->
+    <div id="pokemon-modal" class="modal" style="display:none;">
+        <div class="modal-content" id="modal-content"></div>
+    </div>
+    <div class="poke-evolutions" id="poke-evolutions"></div>
+    <button id="toggle-theme" class="type-btn" style="position:fixed;top:1em;right:1em;z-index:2000;">🌙</button>
+    <script src="./Js/Engine.js"></script>
+</body>
+</html>
